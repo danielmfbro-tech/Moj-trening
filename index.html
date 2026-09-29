@@ -22,16 +22,16 @@ body {
 header {
     position: sticky;
     top: 0;
-    z-index: 20;
+    z-index: 100;
     background: #181b21;
     border-bottom: 1px solid #30343c;
-    padding: 14px 12px 10px;
+    padding: 13px 12px 10px;
 }
 
 .header-title {
+    text-align: center;
     font-size: 23px;
     font-weight: 800;
-    text-align: center;
 }
 
 .header-version {
@@ -42,10 +42,10 @@ header {
 }
 
 .container {
-    max-width: 760px;
+    max-width: 780px;
     margin: auto;
     padding: 12px;
-    padding-bottom: 90px;
+    padding-bottom: 80px;
 }
 
 .tabs {
@@ -56,12 +56,12 @@ header {
 }
 
 .tab {
-    border: 1px solid #343942;
     background: #1b1f26;
-    color: #bbb;
+    color: #aaa;
+    border: 1px solid #343942;
     border-radius: 10px;
-    padding: 11px 4px;
-    font-size: 13px;
+    padding: 10px 3px;
+    font-size: 12px;
     font-weight: 700;
 }
 
@@ -78,12 +78,52 @@ header {
     margin-bottom: 12px;
 }
 
+.section-title {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.muted {
+    color: #8d929b;
+}
+
+.notice {
+    background: #20252d;
+    border: 1px solid #353b45;
+    border-radius: 10px;
+    padding: 11px;
+    color: #aaa;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.plan-selector {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
+}
+
+.plan-button {
+    background: #20242c;
+    color: #aaa;
+    border: 1px solid #383d46;
+    border-radius: 10px;
+    padding: 12px;
+    font-weight: 800;
+}
+
+.plan-button.active {
+    background: #f1f1f1;
+    color: #111;
+}
+
 .exercise {
-    border: 1px solid #30343c;
     background: #15181d;
+    border: 1px solid #30343c;
     border-radius: 13px;
-    margin-bottom: 12px;
     overflow: hidden;
+    margin-bottom: 12px;
 }
 
 .exercise-header {
@@ -91,44 +131,57 @@ header {
     border-bottom: 1px solid #30343c;
 }
 
-.exercise-title {
+.exercise-name {
     font-size: 17px;
     font-weight: 800;
 }
 
-.exercise-range {
-    color: #999;
+.exercise-muscle {
+    color: #9297a0;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.exercise-info {
+    color: #777;
     font-size: 12px;
     margin-top: 4px;
 }
 
 .exercise-photo {
+    display: block;
     width: 100%;
     max-height: 300px;
     object-fit: cover;
-    display: block;
+}
+
+.set-header,
+.set-row {
+    display: grid;
+    grid-template-columns: 34px 1fr 1fr 1fr;
+    gap: 6px;
+    align-items: center;
+    padding: 7px 9px;
+}
+
+.set-header {
+    color: #777;
+    font-size: 10px;
+    text-transform: uppercase;
 }
 
 .set-row {
-    display: grid;
-    grid-template-columns: 35px 1fr 1fr 1fr;
-    gap: 6px;
-    align-items: center;
-    padding: 8px 10px;
-    border-bottom: 1px solid #272b32;
-}
-
-.set-row:last-child {
-    border-bottom: none;
+    border-top: 1px solid #272b32;
 }
 
 .set-number {
-    color: #aaa;
-    font-weight: 700;
     text-align: center;
+    color: #999;
+    font-weight: 700;
 }
 
 input,
+textarea,
 select {
     width: 100%;
     background: #0f1115;
@@ -139,27 +192,34 @@ select {
     font-size: 15px;
 }
 
+textarea {
+    min-height: 70px;
+    resize: vertical;
+}
+
 input:focus,
+textarea:focus,
 select:focus {
     outline: none;
-    border-color: #888;
+    border-color: #aaa;
 }
 
 button {
-    border: none;
-    border-radius: 9px;
-    padding: 10px 13px;
-    font-weight: 700;
     cursor: pointer;
 }
 
-button:active {
-    transform: scale(.98);
+.primary,
+.secondary,
+.danger {
+    border-radius: 9px;
+    padding: 10px 13px;
+    font-weight: 700;
 }
 
 .primary {
     background: #f1f1f1;
     color: #111;
+    border: none;
 }
 
 .secondary {
@@ -174,11 +234,6 @@ button:active {
     border: 1px solid #67363b;
 }
 
-.small {
-    font-size: 12px;
-    padding: 7px 9px;
-}
-
 .full {
     width: 100%;
 }
@@ -189,28 +244,23 @@ button:active {
     flex-wrap: wrap;
 }
 
-.actions button {
+.actions > button {
     flex: 1;
 }
 
-.section-title {
-    font-size: 18px;
-    font-weight: 800;
-    margin-bottom: 10px;
+.small {
+    font-size: 12px;
+    padding: 7px 9px;
 }
 
-.muted {
-    color: #8d929b;
-}
-
-.big-number {
-    font-size: 30px;
-    font-weight: 900;
+.finish-button {
+    font-size: 16px;
+    padding: 14px;
 }
 
 .history-item {
     border-bottom: 1px solid #30343c;
-    padding: 10px 0;
+    padding: 12px 0;
 }
 
 .history-item:last-child {
@@ -222,71 +272,9 @@ button:active {
 }
 
 .history-details {
-    color: #aaa;
-    font-size: 13px;
-    margin-top: 4px;
-}
-
-.editor-exercise {
-    border: 1px solid #383d46;
-    border-radius: 12px;
-    padding: 12px;
-    margin-bottom: 12px;
-    background: #15181d;
-}
-
-.editor-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-}
-
-.editor-grid .wide {
-    grid-column: 1 / -1;
-}
-
-label {
-    display: block;
-    font-size: 12px;
     color: #999;
-    margin-bottom: 4px;
-}
-
-.photo-preview {
-    width: 100%;
-    max-height: 240px;
-    object-fit: cover;
-    border-radius: 9px;
-    margin-top: 8px;
-}
-
-.empty {
-    text-align: center;
-    color: #777;
-    padding: 25px 10px;
-}
-
-hr {
-    border: none;
-    border-top: 1px solid #30343c;
-    margin: 15px 0;
-}
-
-.notice {
-    background: #20252d;
-    border: 1px solid #353b45;
-    border-radius: 10px;
-    padding: 11px;
-    color: #bbb;
     font-size: 13px;
-    line-height: 1.45;
-}
-
-.plan-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
+    margin-top: 5px;
 }
 
 .stat-grid {
@@ -308,30 +296,91 @@ hr {
 }
 
 .stat-value {
-    font-size: 21px;
+    font-size: 22px;
     font-weight: 800;
     margin-top: 4px;
 }
 
+.editor-exercise {
+    background: #15181d;
+    border: 1px solid #373c45;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 12px;
+}
+
+.editor-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.wide {
+    grid-column: 1 / -1;
+}
+
+label {
+    display: block;
+    color: #999;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.photo-preview {
+    display: block;
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 9px;
+    margin-top: 9px;
+}
+
+.empty {
+    text-align: center;
+    color: #777;
+    padding: 25px 10px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #30343c;
+    margin: 15px 0;
+}
+
+.next-box {
+    background: #20252d;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    margin-top: 10px;
+}
+
 @media (max-width: 430px) {
+
     .tabs {
         grid-template-columns: repeat(5, 1fr);
     }
 
     .tab {
-        font-size: 11px;
-        padding: 10px 2px;
+        font-size: 10px;
+        padding: 9px 2px;
     }
 
+    .set-header,
     .set-row {
-        grid-template-columns: 28px 1fr 1fr 1fr;
+        grid-template-columns: 27px 1fr 1fr 1fr;
         gap: 4px;
-        padding: 7px 6px;
+        padding-left: 6px;
+        padding-right: 6px;
     }
 
     input {
         font-size: 14px;
         padding: 9px 5px;
+    }
+
+    .exercise-name {
+        font-size: 16px;
     }
 }
 </style>
@@ -341,111 +390,236 @@ hr {
 
 <header>
     <div class="header-title">💪 Moj Trening</div>
-    <div class="header-version" id="versionText">Verzija 3.0</div>
+    <div class="header-version">Verzija 4.0 · A/B/C Hypertrophy</div>
 </header>
 
 <div class="container">
 
     <div class="tabs">
-        <button class="tab active" onclick="showPage('workout')" id="tab-workout">Trening</button>
-        <button class="tab" onclick="showPage('history')" id="tab-history">Istorija</button>
-        <button class="tab" onclick="showPage('progress')" id="tab-progress">Napredak</button>
-        <button class="tab" onclick="showPage('weight')" id="tab-weight">Težina</button>
-        <button class="tab" onclick="showPage('edit')" id="tab-edit">Uredi plan</button>
+
+        <button class="tab active" id="tab-workout" onclick="showPage('workout')">
+            Trening
+        </button>
+
+        <button class="tab" id="tab-history" onclick="showPage('history')">
+            Istorija
+        </button>
+
+        <button class="tab" id="tab-progress" onclick="showPage('progress')">
+            Napredak
+        </button>
+
+        <button class="tab" id="tab-weight" onclick="showPage('weight')">
+            Težina
+        </button>
+
+        <button class="tab" id="tab-edit" onclick="showPage('edit')">
+            Uredi
+        </button>
+
     </div>
+
+
+    <!-- ==================== TRENING ==================== -->
 
     <div id="page-workout">
 
         <div class="card">
-            <div class="plan-title">
-                <div>
-                    <div class="section-title" style="margin-bottom:2px;">Današnji trening</div>
-                    <div class="muted" id="currentWorkoutInfo"></div>
-                </div>
-                <button class="secondary small" onclick="changeWorkout()">A / B / C</button>
+
+            <div class="section-title">
+                Izaberi trening
             </div>
+
+            <div class="plan-selector">
+
+                <button id="workoutBtnA" class="plan-button" onclick="selectWorkout('A')">
+                    A
+                </button>
+
+                <button id="workoutBtnB" class="plan-button" onclick="selectWorkout('B')">
+                    B
+                </button>
+
+                <button id="workoutBtnC" class="plan-button" onclick="selectWorkout('C')">
+                    C
+                </button>
+
+            </div>
+
+            <div class="next-box" id="workoutDescription"></div>
+
         </div>
 
         <div id="workoutContainer"></div>
 
         <div class="card">
-            <button class="primary full" onclick="finishWorkout()">
-                ✅ Završi trening
+
+            <button class="primary full finish-button" onclick="finishWorkout()">
+                ✅ Završi i sačuvaj trening
             </button>
+
         </div>
 
     </div>
+
+
+    <!-- ==================== ISTORIJA ==================== -->
 
     <div id="page-history" style="display:none;">
+
         <div class="card">
-            <div class="section-title">Istorija treninga</div>
+
+            <div class="section-title">
+                Istorija treninga
+            </div>
+
             <div id="historyContainer"></div>
+
         </div>
+
     </div>
+
+
+    <!-- ==================== NAPREDAK ==================== -->
 
     <div id="page-progress" style="display:none;">
+
         <div class="card">
-            <div class="section-title">Napredak</div>
+
+            <div class="section-title">
+                Napredak
+            </div>
 
             <div class="stat-grid">
+
                 <div class="stat">
-                    <div class="stat-label">Ukupno treninga</div>
-                    <div class="stat-value" id="totalWorkouts">0</div>
+
+                    <div class="stat-label">
+                        Ukupno treninga
+                    </div>
+
+                    <div class="stat-value" id="totalWorkouts">
+                        0
+                    </div>
+
                 </div>
 
                 <div class="stat">
-                    <div class="stat-label">Bench PR</div>
-                    <div class="stat-value" id="benchPR">0 kg</div>
+
+                    <div class="stat-label">
+                        Bench PR
+                    </div>
+
+                    <div class="stat-value" id="benchPR">
+                        0 kg
+                    </div>
+
                 </div>
+
             </div>
+
         </div>
 
         <div class="card">
-            <div class="section-title">PR po vežbama</div>
+
+            <div class="section-title">
+                Najveća тежина по вежби
+            </div>
+
             <div id="prContainer"></div>
+
         </div>
+
     </div>
+
+
+    <!-- ==================== TEŽINA ==================== -->
 
     <div id="page-weight" style="display:none;">
 
         <div class="card">
-            <div class="section-title">Telesna težina</div>
 
-            <label>Težina (kg)</label>
-            <input type="number" id="bodyWeightInput" step="0.1" placeholder="npr. 93.5">
+            <div class="section-title">
+                Telesna težina
+            </div>
+
+            <label>
+                Težina u kg
+            </label>
+
+            <input
+                type="number"
+                id="bodyWeightInput"
+                step="0.1"
+                placeholder="npr. 93.5"
+            >
 
             <br><br>
 
             <button class="primary full" onclick="saveBodyWeight()">
                 Sačuvaj težinu
             </button>
+
         </div>
 
         <div class="card">
-            <div class="section-title">Istorija težine</div>
+
+            <div class="section-title">
+                Istorija težine
+            </div>
+
             <div id="weightHistory"></div>
+
         </div>
 
     </div>
+
+
+    <!-- ==================== UREDI PLAN ==================== -->
 
     <div id="page-edit" style="display:none;">
 
         <div class="card">
 
-            <div class="section-title">Uredi plan treninga</div>
+            <div class="section-title">
+                Uredi program
+            </div>
 
             <div class="notice">
-                Ovde možeš potpuno da promeniš svoj plan. Možeš promeniti naziv vežbe,
-                broj serija, broj ponavljanja, dodati ili obrisati vežbu i dodati fotografiju
-                mašine ili vežbe.
+                Ovde možeš da menjaš kompletan program:
+                naziv vežbe, mišićnu grupu, broj serija,
+                raspon ponavljanja, početnu težinu i fotografiju.
+                Možeš i da додајеш или бришеш вежбе.
             </div>
 
             <br>
 
-            <div class="tabs" style="grid-template-columns:repeat(3,1fr);">
-                <button class="tab active" id="editTabA" onclick="setEditWorkout('A')">A</button>
-                <button class="tab" id="editTabB" onclick="setEditWorkout('B')">B</button>
-                <button class="tab" id="editTabC" onclick="setEditWorkout('C')">C</button>
+            <div class="plan-selector">
+
+                <button
+                    id="editBtnA"
+                    class="plan-button active"
+                    onclick="setEditWorkout('A')"
+                >
+                    A
+                </button>
+
+                <button
+                    id="editBtnB"
+                    class="plan-button"
+                    onclick="setEditWorkout('B')"
+                >
+                    B
+                </button>
+
+                <button
+                    id="editBtnC"
+                    class="plan-button"
+                    onclick="setEditWorkout('C')"
+                >
+                    C
+                </button>
+
             </div>
 
         </div>
@@ -453,35 +627,47 @@ hr {
         <div id="editorContainer"></div>
 
         <div class="card">
+
             <button class="primary full" onclick="addExercise()">
                 ＋ Dodaj vežbu
             </button>
+
         </div>
 
         <div class="card">
+
             <button class="primary full" onclick="savePlan()">
                 💾 Sačuvaj izmene plana
             </button>
+
         </div>
 
         <div class="card">
-            <div class="section-title">Backup</div>
+
+            <div class="section-title">
+                Backup
+            </div>
 
             <div class="notice">
-                Backup čuva plan, treninge, težinu i fotografije.
-                Preporučujem da ga povremeno izvezeš.
+                Backup čuva treninge, plan A/B/C, telesnu težinu
+                i sve fotografije.
             </div>
 
             <br>
 
             <div class="actions">
+
                 <button class="secondary" onclick="exportBackup()">
-                    ⬇️ Izvezi backup
+                    ⬇️ Izvezi
                 </button>
 
-                <button class="secondary" onclick="document.getElementById('backupInput').click()">
-                    ⬆️ Uvezi backup
+                <button
+                    class="secondary"
+                    onclick="document.getElementById('backupInput').click()"
+                >
+                    ⬆️ Uvezi
                 </button>
+
             </div>
 
             <input
@@ -491,258 +677,561 @@ hr {
                 style="display:none;"
                 onchange="importBackup(event)"
             >
-        </div>
 
-        <div class="card">
-            <div class="section-title">Informacije</div>
-            <div class="muted">
-                Moj Trening<br>
-                Verzija 3.0<br>
-                GitHub Pages
-            </div>
         </div>
 
     </div>
 
 </div>
 
+
 <script>
 
-const APP_VERSION = "3.0";
+/* =========================================================
+   OSNOVNE POSTAVKE
+========================================================= */
+
+const APP_VERSION = "4.0";
 
 const WORKOUTS_KEY = "moj_trening_workouts_v2";
 const WEIGHTS_KEY = "moj_trening_weights_v2";
 const PLAN_KEY = "moj_trening_plan_v2";
 const NEXT_KEY = "moj_trening_nextWorkout_v2";
 
-let currentWorkout = localStorage.getItem(NEXT_KEY) || "A";
-let editWorkout = "A";
 
-let workouts = JSON.parse(localStorage.getItem(WORKOUTS_KEY) || "[]");
-let weights = JSON.parse(localStorage.getItem(WEIGHTS_KEY) || "[]");
+/* =========================================================
+   ORIGINALNI PROGRAM A/B/C
+========================================================= */
 
 const defaultPlan = {
 
-    A: [
-        {
-            name: "Bench Press",
-            sets: 3,
-            min: 8,
-            max: 12,
-            start: 60,
-            photo: ""
-        },
-        {
-            name: "Lat Pulldown",
-            sets: 3,
-            min: 8,
-            max: 12,
-            start: 50,
-            photo: ""
-        },
-        {
-            name: "Shoulder Press",
-            sets: 3,
-            min: 8,
-            max: 12,
-            start: 30,
-            photo: ""
-        },
-        {
-            name: "Biceps Curl",
-            sets: 3,
-            min: 8,
-            max: 12,
-            start: 14,
-            photo: ""
-        }
-    ],
+A: [
 
-    B: [
-        {
-            name: "Squat / Leg Press",
-            sets: 3,
-            min: 8,
-            max: 12,
-            start: 80,
-            photo: ""
-        },
-        {
-            name: "Leg Curl",
-            sets: 3,
-            min: 8,
-            max: 12,
-            start: 40,
-            photo: ""
-        },
-        {
-            name: "Calf Raise",
-            sets: 3,
-            min: 10,
-            max: 15,
-            start: 50,
-            photo: ""
-        },
-        {
-            name: "Triceps Pushdown",
-            sets: 3,
-            min: 8,
-            max: 12,
-            start: 30,
-            photo: ""
-        }
-    ],
+    {
+        name: "Čučanj / Leg Press",
+        muscle: "Kvadriceps · gluteus",
+        sets: 3,
+        min: 6,
+        max: 10,
+        start: 80,
+        photo: ""
+    },
 
-    C: [
-        {
-            name: "Incline Dumbbell Press",
-            sets: 3,
-            min: 8,
-            max: 12,
-            start: 22,
-            photo: ""
-        },
-        {
-            name: "Seated Row",
-            sets: 3,
-            min: 8,
-            max: 12,
-            start: 50,
-            photo: ""
-        },
-        {
-            name: "Lateral Raise",
-            sets: 3,
-            min: 10,
-            max: 15,
-            start: 10,
-            photo: ""
-        },
-        {
-            name: "Hammer Curl",
-            sets: 3,
-            min: 8,
-            max: 12,
-            start: 14,
-            photo: ""
-        }
-    ]
+    {
+        name: "Bench Press",
+        muscle: "Grudi · triceps · prednje rame",
+        sets: 3,
+        min: 6,
+        max: 10,
+        start: 60,
+        photo: ""
+    },
+
+    {
+        name: "Lat Pulldown",
+        muscle: "Latovi · biceps",
+        sets: 3,
+        min: 8,
+        max: 12,
+        start: 50,
+        photo: ""
+    },
+
+    {
+        name: "Romanian Deadlift",
+        muscle: "Zadnja loža · gluteus",
+        sets: 3,
+        min: 8,
+        max: 12,
+        start: 50,
+        photo: ""
+    },
+
+    {
+        name: "Lateral Raise",
+        muscle: "Bočno rame",
+        sets: 3,
+        min: 10,
+        max: 15,
+        start: 8,
+        photo: ""
+    },
+
+    {
+        name: "Biceps Curl",
+        muscle: "Biceps",
+        sets: 2,
+        min: 8,
+        max: 12,
+        start: 14,
+        photo: ""
+    },
+
+    {
+        name: "Triceps Pushdown",
+        muscle: "Triceps",
+        sets: 2,
+        min: 8,
+        max: 12,
+        start: 25,
+        photo: ""
+    },
+
+    {
+        name: "Standing Calf Raise",
+        muscle: "Listovi",
+        sets: 3,
+        min: 10,
+        max: 15,
+        start: 50,
+        photo: ""
+    },
+
+    {
+        name: "Cable Crunch",
+        muscle: "Trbušnjaci / core",
+        sets: 2,
+        min: 10,
+        max: 15,
+        start: 20,
+        photo: ""
+    }
+
+],
+
+B: [
+
+    {
+        name: "Leg Press",
+        muscle: "Kvadriceps · gluteus",
+        sets: 3,
+        min: 8,
+        max: 12,
+        start: 100,
+        photo: ""
+    },
+
+    {
+        name: "Incline Dumbbell Press",
+        muscle: "Gornje grudi · prednje rame · triceps",
+        sets: 3,
+        min: 8,
+        max: 12,
+        start: 22,
+        photo: ""
+    },
+
+    {
+        name: "Seated Cable Row",
+        muscle: "Srednja leđa · latovi · biceps",
+        sets: 3,
+        min: 8,
+        max: 12,
+        start: 50,
+        photo: ""
+    },
+
+    {
+        name: "Leg Curl",
+        muscle: "Zadnja loža",
+        sets: 3,
+        min: 10,
+        max: 15,
+        start: 40,
+        photo: ""
+    },
+
+    {
+        name: "Shoulder Press",
+        muscle: "Ramena · triceps",
+        sets: 3,
+        min: 8,
+        max: 12,
+        start: 30,
+        photo: ""
+    },
+
+    {
+        name: "Rear Delt Fly",
+        muscle: "Zadnje rame · gornja leđa",
+        sets: 3,
+        min: 10,
+        max: 15,
+        start: 20,
+        photo: ""
+    },
+
+    {
+        name: "Hammer Curl",
+        muscle: "Biceps · brachialis",
+        sets: 2,
+        min: 8,
+        max: 12,
+        start: 14,
+        photo: ""
+    },
+
+    {
+        name: "Overhead Triceps Extension",
+        muscle: "Triceps",
+        sets: 2,
+        min: 10,
+        max: 15,
+        start: 20,
+        photo: ""
+    },
+
+    {
+        name: "Seated Calf Raise",
+        muscle: "Listovi",
+        sets: 3,
+        min: 10,
+        max: 15,
+        start: 40,
+        photo: ""
+    },
+
+    {
+        name: "Plank",
+        muscle: "Core",
+        sets: 3,
+        min: 30,
+        max: 60,
+        start: 0,
+        photo: ""
+    }
+
+],
+
+C: [
+
+    {
+        name: "Bulgarian Split Squat",
+        muscle: "Kvadriceps · gluteus",
+        sets: 3,
+        min: 8,
+        max: 12,
+        start: 16,
+        photo: ""
+    },
+
+    {
+        name: "Machine Chest Press",
+        muscle: "Grudi · triceps",
+        sets: 3,
+        min: 8,
+        max: 12,
+        start: 50,
+        photo: ""
+    },
+
+    {
+        name: "Assisted Pull-Up / Lat Pulldown",
+        muscle: "Latovi · biceps · gornja leđa",
+        sets: 3,
+        min: 8,
+        max: 12,
+        start: 50,
+        photo: ""
+    },
+
+    {
+        name: "Hip Thrust",
+        muscle: "Gluteus · zadnja loža",
+        sets: 3,
+        min: 8,
+        max: 12,
+        start: 60,
+        photo: ""
+    },
+
+    {
+        name: "Cable Lateral Raise",
+        muscle: "Bočno rame",
+        sets: 3,
+        min: 10,
+        max: 15,
+        start: 7,
+        photo: ""
+    },
+
+    {
+        name: "Face Pull",
+        muscle: "Zadnje rame · gornja leđa",
+        sets: 3,
+        min: 10,
+        max: 15,
+        start: 20,
+        photo: ""
+    },
+
+    {
+        name: "Incline Dumbbell Curl",
+        muscle: "Biceps",
+        sets: 2,
+        min: 8,
+        max: 12,
+        start: 12,
+        photo: ""
+    },
+
+    {
+        name: "Triceps Pushdown",
+        muscle: "Triceps",
+        sets: 2,
+        min: 8,
+        max: 12,
+        start: 25,
+        photo: ""
+    },
+
+    {
+        name: "Calf Raise",
+        muscle: "Listovi",
+        sets: 3,
+        min: 10,
+        max: 15,
+        start: 50,
+        photo: ""
+    },
+
+    {
+        name: "Hanging Knee Raise",
+        muscle: "Core · donji stomak",
+        sets: 3,
+        min: 10,
+        max: 15,
+        start: 0,
+        photo: ""
+    }
+
+]
 
 };
 
-let plan = JSON.parse(localStorage.getItem(PLAN_KEY) || "null");
 
-if (!plan) {
+/* =========================================================
+   UČITAVANJE PODATAKA
+========================================================= */
+
+let workouts =
+    JSON.parse(localStorage.getItem(WORKOUTS_KEY) || "[]");
+
+let weights =
+    JSON.parse(localStorage.getItem(WEIGHTS_KEY) || "[]");
+
+let savedPlan =
+    JSON.parse(localStorage.getItem(PLAN_KEY) || "null");
+
+let plan =
+    savedPlan || defaultPlan;
+
+let currentWorkout =
+    localStorage.getItem(NEXT_KEY) || "A";
+
+let editWorkout = "A";
+
+
+/* =========================================================
+   AKO JE STARI PLAN PRAZAN / SKRAĆEN
+========================================================= */
+
+if (!plan.A || !plan.B || !plan.C) {
     plan = defaultPlan;
     savePlanStorage();
 }
 
+
+/* =========================================================
+   ČUVANJE PLANA
+========================================================= */
+
 function savePlanStorage() {
-    localStorage.setItem(PLAN_KEY, JSON.stringify(plan));
+
+    localStorage.setItem(
+        PLAN_KEY,
+        JSON.stringify(plan)
+    );
+
 }
+
+
+/* =========================================================
+   STRANICE
+========================================================= */
 
 function showPage(page) {
 
-    const pages = ["workout", "history", "progress", "weight", "edit"];
+    const pages = [
+        "workout",
+        "history",
+        "progress",
+        "weight",
+        "edit"
+    ];
 
-    pages.forEach(p => {
+    pages.forEach(function(p) {
+
         document.getElementById("page-" + p).style.display =
             p === page ? "block" : "none";
 
-        const tab = document.getElementById("tab-" + p);
+        const tab =
+            document.getElementById("tab-" + p);
 
         if (tab) {
-            tab.classList.toggle("active", p === page);
+            tab.classList.toggle(
+                "active",
+                p === page
+            );
         }
+
     });
 
-    if (page === "workout") renderWorkout();
-    if (page === "history") renderHistory();
-    if (page === "progress") renderProgress();
-    if (page === "weight") renderWeights();
-    if (page === "edit") renderEditor();
+    if (page === "workout") {
+        renderWorkout();
+    }
+
+    if (page === "history") {
+        renderHistory();
+    }
+
+    if (page === "progress") {
+        renderProgress();
+    }
+
+    if (page === "weight") {
+        renderWeights();
+    }
+
+    if (page === "edit") {
+        renderEditor();
+    }
+
 }
 
-function changeWorkout() {
 
-    if (currentWorkout === "A") currentWorkout = "B";
-    else if (currentWorkout === "B") currentWorkout = "C";
-    else currentWorkout = "A";
+/* =========================================================
+   IZBOR A/B/C
+========================================================= */
 
-    localStorage.setItem(NEXT_KEY, currentWorkout);
+function selectWorkout(workout) {
+
+    currentWorkout = workout;
+
+    localStorage.setItem(
+        NEXT_KEY,
+        currentWorkout
+    );
 
     renderWorkout();
+
 }
+
+
+/* =========================================================
+   OPIS TRENINGA
+========================================================= */
+
+function workoutDescription(workout) {
+
+    if (workout === "A") {
+        return "A · baza snage + kompletno telo";
+    }
+
+    if (workout === "B") {
+        return "B · drugačiji uglovi + kompletno telo";
+    }
+
+    return "C · unilateralno + kompletno telo";
+
+}
+
+
+/* =========================================================
+   RENDER TRENINGA
+========================================================= */
 
 function renderWorkout() {
 
-    const container = document.getElementById("workoutContainer");
+    document.getElementById("workoutDescription").textContent =
+        workoutDescription(currentWorkout);
 
-    document.getElementById("currentWorkoutInfo").textContent =
-        "Trening " + currentWorkout;
+    ["A", "B", "C"].forEach(function(w) {
+
+        document
+            .getElementById("workoutBtn" + w)
+            .classList.toggle(
+                "active",
+                w === currentWorkout
+            );
+
+    });
+
+    const container =
+        document.getElementById("workoutContainer");
 
     container.innerHTML = "";
 
-    const exercises = plan[currentWorkout] || [];
+    const exercises =
+        plan[currentWorkout] || [];
 
-    if (!exercises.length) {
-
-        container.innerHTML = `
-            <div class="card">
-                <div class="empty">
-                    Nema vežbi u ovom treningu.
-                </div>
-            </div>
-        `;
-
-        return;
-    }
-
-    exercises.forEach((ex, index) => {
+    exercises.forEach(function(ex, index) {
 
         let rows = "";
 
-        for (let i = 1; i <= Number(ex.sets || 1); i++) {
+        for (
+            let set = 1;
+            set <= Number(ex.sets || 1);
+            set++
+        ) {
 
             rows += `
+
                 <div class="set-row">
 
                     <div class="set-number">
-                        ${i}
+                        ${set}
                     </div>
 
                     <input
                         type="number"
-                        min="0"
                         step="0.5"
-                        id="kg_${index}_${i}"
-                        placeholder="kg"
-                        value="${ex.start || ""}"
+                        min="0"
+                        id="kg_${index}_${set}"
+                        placeholder="${ex.start || "kg"}"
                     >
 
                     <input
                         type="number"
                         min="0"
-                        step="1"
-                        id="reps_${index}_${i}"
+                        id="reps_${index}_${set}"
                         placeholder="${ex.min}-${ex.max}"
                     >
 
                     <input
                         type="number"
                         min="0"
-                        step="1"
-                        id="rir_${index}_${i}"
+                        id="rir_${index}_${set}"
                         placeholder="RIR"
                     >
 
                 </div>
+
             `;
         }
 
-        const photo = ex.photo
-            ? `<img class="exercise-photo" src="${ex.photo}" alt="${escapeHtml(ex.name)}">`
-            : "";
+        const photo =
+            ex.photo
+            ?
+            `
+                <img
+                    class="exercise-photo"
+                    src="${ex.photo}"
+                    alt="${escapeHtml(ex.name)}"
+                >
+            `
+            :
+            "";
 
         container.innerHTML += `
 
@@ -750,11 +1239,15 @@ function renderWorkout() {
 
                 <div class="exercise-header">
 
-                    <div class="exercise-title">
+                    <div class="exercise-name">
                         ${escapeHtml(ex.name)}
                     </div>
 
-                    <div class="exercise-range">
+                    <div class="exercise-muscle">
+                        ${escapeHtml(ex.muscle || "")}
+                    </div>
+
+                    <div class="exercise-info">
                         ${ex.sets} serije · ${ex.min}-${ex.max} ponavljanja
                     </div>
 
@@ -762,48 +1255,96 @@ function renderWorkout() {
 
                 ${photo}
 
+                <div class="set-header">
+
+                    <div>#</div>
+                    <div>KG</div>
+                    <div>REPS</div>
+                    <div>RIR</div>
+
+                </div>
+
                 ${rows}
 
             </div>
+
         `;
+
     });
+
 }
+
+
+/* =========================================================
+   ZAVRŠETAK TRENINGA
+========================================================= */
 
 function finishWorkout() {
 
-    const exercises = plan[currentWorkout] || [];
+    const exercises =
+        plan[currentWorkout] || [];
 
     const result = [];
 
-    exercises.forEach((ex, index) => {
+    exercises.forEach(function(ex, index) {
 
         const sets = [];
 
-        for (let i = 1; i <= Number(ex.sets || 1); i++) {
+        for (
+            let set = 1;
+            set <= Number(ex.sets || 1);
+            set++
+        ) {
 
-            const kg = document.getElementById(`kg_${index}_${i}`)?.value || "";
-            const reps = document.getElementById(`reps_${index}_${i}`)?.value || "";
-            const rir = document.getElementById(`rir_${index}_${i}`)?.value || "";
+            const kg =
+                document.getElementById(
+                    "kg_" + index + "_" + set
+                )?.value || "";
 
-            if (kg !== "" || reps !== "" || rir !== "") {
+            const reps =
+                document.getElementById(
+                    "reps_" + index + "_" + set
+                )?.value || "";
+
+            const rir =
+                document.getElementById(
+                    "rir_" + index + "_" + set
+                )?.value || "";
+
+            if (
+                kg !== "" ||
+                reps !== "" ||
+                rir !== ""
+            ) {
 
                 sets.push({
+
                     kg: Number(kg) || 0,
+
                     reps: Number(reps) || 0,
+
                     rir: Number(rir) || 0
+
                 });
 
             }
+
         }
 
         result.push({
+
             name: ex.name,
+
+            muscle: ex.muscle,
+
             sets: sets
+
         });
 
     });
 
-    const entry = {
+
+    workouts.unshift({
 
         id: Date.now(),
 
@@ -813,63 +1354,88 @@ function finishWorkout() {
 
         exercises: result
 
-    };
+    });
 
-    workouts.unshift(entry);
 
     localStorage.setItem(
         WORKOUTS_KEY,
         JSON.stringify(workouts)
     );
 
-    if (currentWorkout === "A") currentWorkout = "B";
-    else if (currentWorkout === "B") currentWorkout = "C";
-    else currentWorkout = "A";
 
-    localStorage.setItem(NEXT_KEY, currentWorkout);
+    if (currentWorkout === "A") {
+        currentWorkout = "B";
+    }
+    else if (currentWorkout === "B") {
+        currentWorkout = "C";
+    }
+    else {
+        currentWorkout = "A";
+    }
 
-    alert("Trening je sačuvan. Sledeći trening je " + currentWorkout + ".");
+
+    localStorage.setItem(
+        NEXT_KEY,
+        currentWorkout
+    );
+
+
+    alert(
+        "Trening je sačuvan.\n\nSledeći trening: " +
+        currentWorkout
+    );
+
 
     renderWorkout();
+
 }
+
+
+/* =========================================================
+   ISTORIJA
+========================================================= */
 
 function renderHistory() {
 
-    const container = document.getElementById("historyContainer");
+    const container =
+        document.getElementById("historyContainer");
 
     if (!workouts.length) {
 
-        container.innerHTML = `
-            <div class="empty">
-                Još nema sačuvanih treninga.
-            </div>
-        `;
+        container.innerHTML =
+            `
+                <div class="empty">
+                    Još nema sačuvanih treninga.
+                </div>
+            `;
 
         return;
+
     }
 
     container.innerHTML = "";
 
-    workouts.forEach((w, index) => {
-
-        const date = new Date(w.date);
+    workouts.forEach(function(w, index) {
 
         let totalSets = 0;
 
-        w.exercises.forEach(ex => {
+        w.exercises.forEach(function(ex) {
             totalSets += ex.sets.length;
         });
+
 
         container.innerHTML += `
 
             <div class="history-item">
 
                 <div class="history-date">
-                    ${formatDate(date)} · Trening ${w.workout}
+                    Trening ${w.workout}
+                    · ${formatDate(new Date(w.date))}
                 </div>
 
                 <div class="history-details">
-                    ${w.exercises.length} vežbi · ${totalSets} upisanih serija
+                    ${w.exercises.length} vežbi
+                    · ${totalSets} upisanih serija
                 </div>
 
                 <br>
@@ -884,12 +1450,21 @@ function renderHistory() {
             </div>
 
         `;
+
     });
+
 }
+
 
 function deleteWorkout(index) {
 
-    if (!confirm("Obrisati ovaj trening?")) return;
+    if (
+        !confirm(
+            "Da li stvarno želiš da obrišeš ovaj trening?"
+        )
+    ) {
+        return;
+    }
 
     workouts.splice(index, 1);
 
@@ -899,26 +1474,44 @@ function deleteWorkout(index) {
     );
 
     renderHistory();
+
     renderProgress();
+
 }
+
+
+/* =========================================================
+   NAPREDAK / PR
+========================================================= */
 
 function renderProgress() {
 
-    document.getElementById("totalWorkouts").textContent =
-        workouts.length;
+    document.getElementById(
+        "totalWorkouts"
+    ).textContent = workouts.length;
+
 
     const prs = {};
 
-    workouts.forEach(w => {
 
-        w.exercises.forEach(ex => {
+    workouts.forEach(function(w) {
 
-            ex.sets.forEach(set => {
+        w.exercises.forEach(function(ex) {
 
-                if (!set.kg) return;
+            ex.sets.forEach(function(set) {
 
-                if (!prs[ex.name] || set.kg > prs[ex.name]) {
-                    prs[ex.name] = set.kg;
+                if (!set.kg) {
+                    return;
+                }
+
+                if (
+                    !prs[ex.name] ||
+                    set.kg > prs[ex.name]
+                ) {
+
+                    prs[ex.name] =
+                        set.kg;
+
                 }
 
             });
@@ -927,102 +1520,153 @@ function renderProgress() {
 
     });
 
-    document.getElementById("benchPR").textContent =
-        (prs["Bench Press"] || 0) + " kg";
 
-    const container = document.getElementById("prContainer");
+    document.getElementById(
+        "benchPR"
+    ).textContent =
+        (prs["Bench Press"] || 0) +
+        " kg";
 
-    const names = Object.keys(prs);
+
+    const container =
+        document.getElementById(
+            "prContainer"
+        );
+
+
+    const names =
+        Object.keys(prs);
+
 
     if (!names.length) {
 
-        container.innerHTML = `
-            <div class="empty">
-                Još nema dovoljno podataka za PR.
-            </div>
-        `;
+        container.innerHTML =
+            `
+                <div class="empty">
+                    Još nema dovoljno podataka.
+                </div>
+            `;
 
         return;
+
     }
+
 
     container.innerHTML = "";
 
-    names.forEach(name => {
+
+    names.forEach(function(name) {
 
         container.innerHTML += `
 
             <div class="history-item">
 
-                <strong>${escapeHtml(name)}</strong>
+                <strong>
+                    ${escapeHtml(name)}
+                </strong>
 
                 <div class="history-details">
                     Najveća upisana težina:
-                    <strong>${prs[name]} kg</strong>
+                    <strong>
+                        ${prs[name]} kg
+                    </strong>
                 </div>
 
             </div>
 
         `;
+
     });
+
 }
+
+
+/* =========================================================
+   TEŽINA
+========================================================= */
 
 function saveBodyWeight() {
 
-    const input = document.getElementById("bodyWeightInput");
+    const value =
+        Number(
+            document.getElementById(
+                "bodyWeightInput"
+            ).value
+        );
 
-    const value = Number(input.value);
 
     if (!value) {
 
-        alert("Unesi telesnu težinu.");
+        alert(
+            "Unesi telesnu težinu."
+        );
 
         return;
+
     }
+
 
     weights.unshift({
 
-        date: new Date().toISOString(),
+        date:
+            new Date().toISOString(),
 
-        weight: value
+        weight:
+            value
 
     });
+
 
     localStorage.setItem(
         WEIGHTS_KEY,
         JSON.stringify(weights)
     );
 
-    input.value = "";
+
+    document.getElementById(
+        "bodyWeightInput"
+    ).value = "";
+
 
     renderWeights();
+
 }
+
 
 function renderWeights() {
 
-    const container = document.getElementById("weightHistory");
+    const container =
+        document.getElementById(
+            "weightHistory"
+        );
+
 
     if (!weights.length) {
 
-        container.innerHTML = `
-            <div class="empty">
-                Još nema upisanih težina.
-            </div>
-        `;
+        container.innerHTML =
+            `
+                <div class="empty">
+                    Još nema upisanih težina.
+                </div>
+            `;
 
         return;
+
     }
+
 
     container.innerHTML = "";
 
-    weights.forEach((w, index) => {
+
+    weights.forEach(function(w, index) {
 
         container.innerHTML += `
 
             <div class="history-item">
 
-                <div>
-                    <strong>${w.weight} kg</strong>
-                </div>
+                <strong>
+                    ${w.weight} kg
+                </strong>
 
                 <div class="history-details">
                     ${formatDate(new Date(w.date))}
@@ -1040,71 +1684,95 @@ function renderWeights() {
             </div>
 
         `;
+
     });
+
 }
+
 
 function deleteWeight(index) {
 
-    if (!confirm("Obrisati ovu težinu?")) return;
+    if (
+        !confirm(
+            "Obrisati ovu težinu?"
+        )
+    ) {
+        return;
+    }
+
 
     weights.splice(index, 1);
+
 
     localStorage.setItem(
         WEIGHTS_KEY,
         JSON.stringify(weights)
     );
 
+
     renderWeights();
+
 }
+
+
+/* =========================================================
+   EDITOR PLANA
+========================================================= */
 
 function setEditWorkout(workout) {
 
     editWorkout = workout;
 
-    document.getElementById("editTabA")
-        .classList.toggle("active", workout === "A");
 
-    document.getElementById("editTabB")
-        .classList.toggle("active", workout === "B");
+    ["A", "B", "C"].forEach(function(w) {
 
-    document.getElementById("editTabC")
-        .classList.toggle("active", workout === "C");
+        document
+            .getElementById(
+                "editBtn" + w
+            )
+            .classList.toggle(
+                "active",
+                w === workout
+            );
+
+    });
+
 
     renderEditor();
+
 }
+
 
 function renderEditor() {
 
-    const container = document.getElementById("editorContainer");
+    const container =
+        document.getElementById(
+            "editorContainer"
+        );
 
-    const exercises = plan[editWorkout] || [];
 
     container.innerHTML = "";
 
-    if (!exercises.length) {
 
-        container.innerHTML = `
-            <div class="card">
-                <div class="empty">
-                    Nema vežbi.
-                </div>
-            </div>
-        `;
+    const exercises =
+        plan[editWorkout] || [];
 
-        return;
-    }
 
-    exercises.forEach((ex, index) => {
+    exercises.forEach(function(ex, index) {
 
-        const photo = ex.photo
-            ? `
+        const photo =
+            ex.photo
+            ?
+            `
                 <img
                     class="photo-preview"
                     src="${ex.photo}"
-                    alt="Fotografija"
+                    alt="Fotografija vežbe"
                 >
             `
-            : "";
+            :
+            "";
+
 
         container.innerHTML += `
 
@@ -1114,11 +1782,14 @@ function renderEditor() {
                     Vežba ${index + 1}
                 </div>
 
+
                 <div class="editor-grid">
 
                     <div class="wide">
 
-                        <label>Naziv vežbe</label>
+                        <label>
+                            Naziv vežbe
+                        </label>
 
                         <input
                             type="text"
@@ -1128,9 +1799,27 @@ function renderEditor() {
 
                     </div>
 
+
+                    <div class="wide">
+
+                        <label>
+                            Mišićna grupa
+                        </label>
+
+                        <input
+                            type="text"
+                            id="edit_muscle_${index}"
+                            value="${escapeAttribute(ex.muscle || "")}"
+                        >
+
+                    </div>
+
+
                     <div>
 
-                        <label>Broj serija</label>
+                        <label>
+                            Serije
+                        </label>
 
                         <input
                             type="number"
@@ -1142,23 +1831,29 @@ function renderEditor() {
 
                     </div>
 
+
                     <div>
 
-                        <label>Početna težina (kg)</label>
+                        <label>
+                            Početna težina kg
+                        </label>
 
                         <input
                             type="number"
                             step="0.5"
                             min="0"
                             id="edit_start_${index}"
-                            value="${ex.start || ""}"
+                            value="${ex.start || 0}"
                         >
 
                     </div>
 
+
                     <div>
 
-                        <label>Min. ponavljanja</label>
+                        <label>
+                            Minimum ponavljanja
+                        </label>
 
                         <input
                             type="number"
@@ -1170,9 +1865,12 @@ function renderEditor() {
 
                     </div>
 
+
                     <div>
 
-                        <label>Max. ponavljanja</label>
+                        <label>
+                            Maksimum ponavljanja
+                        </label>
 
                         <input
                             type="number"
@@ -1186,9 +1884,12 @@ function renderEditor() {
 
                 </div>
 
+
                 ${photo}
 
+
                 <br>
+
 
                 <div class="actions">
 
@@ -1196,8 +1897,10 @@ function renderEditor() {
                         class="secondary"
                         onclick="document.getElementById('photo_${index}').click()"
                     >
-                        📷 ${ex.photo ? "Promeni sliku" : "Dodaj sliku"}
+                        📷
+                        ${ex.photo ? "Promeni sliku" : "Dodaj sliku"}
                     </button>
+
 
                     <button
                         class="danger"
@@ -1208,19 +1911,23 @@ function renderEditor() {
 
                 </div>
 
+
                 <input
                     type="file"
                     id="photo_${index}"
                     accept="image/*"
                     capture="environment"
-                    style="display:none;"
+                    style="display:none"
                     onchange="handlePhoto(event, ${index})"
                 >
 
+
                 ${
                     ex.photo
-                    ? `
+                    ?
+                    `
                         <br>
+
                         <button
                             class="danger small full"
                             onclick="removePhoto(${index})"
@@ -1228,13 +1935,18 @@ function renderEditor() {
                             🗑️ Obriši fotografiju
                         </button>
                     `
-                    : ""
+                    :
+                    ""
                 }
 
             </div>
+
         `;
+
     });
+
 }
+
 
 function addExercise() {
 
@@ -1242,9 +1954,12 @@ function addExercise() {
         plan[editWorkout] = [];
     }
 
+
     plan[editWorkout].push({
 
         name: "Nova vežba",
+
+        muscle: "Mišićna grupa",
 
         sets: 3,
 
@@ -1258,123 +1973,257 @@ function addExercise() {
 
     });
 
+
     renderEditor();
+
 }
+
 
 function removeExercise(index) {
 
-    if (!confirm("Obrisati ovu vežbu iz plana?")) return;
+    if (
+        !confirm(
+            "Obrisati ovu vežbu iz plana?"
+        )
+    ) {
+        return;
+    }
 
-    plan[editWorkout].splice(index, 1);
+
+    plan[editWorkout].splice(
+        index,
+        1
+    );
+
 
     renderEditor();
+
 }
+
 
 function savePlan() {
 
-    const exercises = plan[editWorkout] || [];
+    const exercises =
+        plan[editWorkout] || [];
 
-    exercises.forEach((ex, index) => {
+
+    exercises.forEach(function(ex, index) {
 
         const name =
-            document.getElementById(`edit_name_${index}`)?.value.trim();
+            document.getElementById(
+                "edit_name_" + index
+            )?.value.trim();
+
+
+        const muscle =
+            document.getElementById(
+                "edit_muscle_" + index
+            )?.value.trim();
+
 
         const sets =
-            Number(document.getElementById(`edit_sets_${index}`)?.value);
+            Number(
+                document.getElementById(
+                    "edit_sets_" + index
+                )?.value
+            );
+
 
         const min =
-            Number(document.getElementById(`edit_min_${index}`)?.value);
+            Number(
+                document.getElementById(
+                    "edit_min_" + index
+                )?.value
+            );
+
 
         const max =
-            Number(document.getElementById(`edit_max_${index}`)?.value);
+            Number(
+                document.getElementById(
+                    "edit_max_" + index
+                )?.value
+            );
+
 
         const start =
-            Number(document.getElementById(`edit_start_${index}`)?.value);
+            Number(
+                document.getElementById(
+                    "edit_start_" + index
+                )?.value
+            );
 
-        ex.name = name || "Nova vežba";
 
-        ex.sets = sets > 0 ? sets : 1;
+        ex.name =
+            name || "Nova vežba";
 
-        ex.min = min > 0 ? min : 1;
 
-        ex.max = max >= ex.min ? max : ex.min;
+        ex.muscle =
+            muscle || "";
 
-        ex.start = start >= 0 ? start : 0;
+
+        ex.sets =
+            sets > 0 ? sets : 1;
+
+
+        ex.min =
+            min > 0 ? min : 1;
+
+
+        ex.max =
+            max >= ex.min
+                ? max
+                : ex.min;
+
+
+        ex.start =
+            start >= 0
+                ? start
+                : 0;
 
     });
+
 
     savePlanStorage();
 
-    alert("Plan treninga je sačuvan.");
+
+    alert(
+        "Plan " +
+        editWorkout +
+        " je sačuvan."
+    );
+
 
     renderEditor();
+
     renderWorkout();
+
 }
+
+
+/* =========================================================
+   FOTOGRAFIJE
+========================================================= */
 
 function handlePhoto(event, index) {
 
-    const file = event.target.files[0];
+    const file =
+        event.target.files[0];
 
-    if (!file) return;
 
-    compressImage(file, function(dataUrl) {
+    if (!file) {
+        return;
+    }
 
-        plan[editWorkout][index].photo = dataUrl;
 
-        renderEditor();
+    compressImage(
+        file,
+        function(dataUrl) {
 
-    });
+            plan[editWorkout][index].photo =
+                dataUrl;
+
+            renderEditor();
+
+        }
+    );
 
 }
+
 
 function removePhoto(index) {
 
-    if (!confirm("Obrisati fotografiju?")) return;
+    if (
+        !confirm(
+            "Obrisati fotografiju?"
+        )
+    ) {
+        return;
+    }
 
-    plan[editWorkout][index].photo = "";
+
+    plan[editWorkout][index].photo =
+        "";
+
 
     renderEditor();
+
 }
+
 
 function compressImage(file, callback) {
 
-    const reader = new FileReader();
+    const reader =
+        new FileReader();
+
 
     reader.onload = function(e) {
 
-        const img = new Image();
+        const img =
+            new Image();
+
 
         img.onload = function() {
 
             const maxSize = 1000;
 
-            let width = img.width;
-            let height = img.height;
+            let width =
+                img.width;
 
-            if (width > height && width > maxSize) {
+            let height =
+                img.height;
 
-                height = Math.round(
-                    height * maxSize / width
-                );
 
-                width = maxSize;
+            if (
+                width > height &&
+                width > maxSize
+            ) {
 
-            } else if (height > maxSize) {
+                height =
+                    Math.round(
+                        height *
+                        maxSize /
+                        width
+                    );
 
-                width = Math.round(
-                    width * maxSize / height
-                );
+                width =
+                    maxSize;
 
-                height = maxSize;
+            }
+            else if (
+                height > maxSize
+            ) {
+
+                width =
+                    Math.round(
+                        width *
+                        maxSize /
+                        height
+                    );
+
+                height =
+                    maxSize;
 
             }
 
-            const canvas = document.createElement("canvas");
 
-            canvas.width = width;
-            canvas.height = height;
+            const canvas =
+                document.createElement(
+                    "canvas"
+                );
 
-            const ctx = canvas.getContext("2d");
+
+            canvas.width =
+                width;
+
+            canvas.height =
+                height;
+
+
+            const ctx =
+                canvas.getContext(
+                    "2d"
+                );
+
 
             ctx.drawImage(
                 img,
@@ -1384,53 +2233,96 @@ function compressImage(file, callback) {
                 height
             );
 
+
             const result =
-                canvas.toDataURL("image/jpeg", 0.78);
+                canvas.toDataURL(
+                    "image/jpeg",
+                    0.78
+                );
+
 
             callback(result);
 
         };
 
-        img.src = e.target.result;
+
+        img.src =
+            e.target.result;
 
     };
 
+
     reader.readAsDataURL(file);
+
 }
+
+
+/* =========================================================
+   BACKUP
+========================================================= */
 
 function exportBackup() {
 
     const backup = {
 
-        version: APP_VERSION,
+        appVersion:
+            APP_VERSION,
 
-        created: new Date().toISOString(),
+        created:
+            new Date().toISOString(),
 
-        workouts: workouts,
+        workouts:
+            workouts,
 
-        weights: weights,
+        weights:
+            weights,
 
-        plan: plan,
+        plan:
+            plan,
 
-        nextWorkout: currentWorkout
+        nextWorkout:
+            currentWorkout
 
     };
 
-    const blob = new Blob(
-        [JSON.stringify(backup)],
-        {type: "application/json"}
-    );
 
-    const url = URL.createObjectURL(blob);
+    const blob =
+        new Blob(
+            [
+                JSON.stringify(
+                    backup
+                )
+            ],
+            {
+                type:
+                    "application/json"
+            }
+        );
 
-    const a = document.createElement("a");
 
-    a.href = url;
+    const url =
+        URL.createObjectURL(
+            blob
+        );
+
+
+    const a =
+        document.createElement(
+            "a"
+        );
+
+
+    a.href =
+        url;
+
 
     a.download =
         "moj-trening-backup-" +
-        new Date().toISOString().slice(0,10) +
+        new Date()
+            .toISOString()
+            .slice(0, 10) +
         ".json";
+
 
     document.body.appendChild(a);
 
@@ -1438,88 +2330,145 @@ function exportBackup() {
 
     a.remove();
 
+
     URL.revokeObjectURL(url);
+
 }
+
 
 function importBackup(event) {
 
-    const file = event.target.files[0];
+    const file =
+        event.target.files[0];
 
-    if (!file) return;
 
-    const reader = new FileReader();
+    if (!file) {
+        return;
+    }
 
-    reader.onload = function(e) {
 
-        try {
+    const reader =
+        new FileReader();
 
-            const backup =
-                JSON.parse(e.target.result);
 
-            if (!backup || !backup.plan) {
+    reader.onload =
+        function(e) {
 
-                throw new Error("Neispravan backup.");
+            try {
+
+                const backup =
+                    JSON.parse(
+                        e.target.result
+                    );
+
+
+                if (
+                    !backup ||
+                    !backup.plan
+                ) {
+
+                    throw new Error(
+                        "Neispravan backup"
+                    );
+
+                }
+
+
+                if (
+                    !confirm(
+                        "Uvoz backupa će zameniti trenutne podatke. Nastaviti?"
+                    )
+                ) {
+                    return;
+                }
+
+
+                plan =
+                    backup.plan;
+
+
+                workouts =
+                    Array.isArray(
+                        backup.workouts
+                    )
+                    ?
+                    backup.workouts
+                    :
+                    [];
+
+
+                weights =
+                    Array.isArray(
+                        backup.weights
+                    )
+                    ?
+                    backup.weights
+                    :
+                    [];
+
+
+                currentWorkout =
+                    backup.nextWorkout ||
+                    "A";
+
+
+                savePlanStorage();
+
+
+                localStorage.setItem(
+                    WORKOUTS_KEY,
+                    JSON.stringify(
+                        workouts
+                    )
+                );
+
+
+                localStorage.setItem(
+                    WEIGHTS_KEY,
+                    JSON.stringify(
+                        weights
+                    )
+                );
+
+
+                localStorage.setItem(
+                    NEXT_KEY,
+                    currentWorkout
+                );
+
+
+                alert(
+                    "Backup je uspešno učitan."
+                );
+
+
+                renderWorkout();
+
+                renderEditor();
+
+            }
+            catch(error) {
+
+                alert(
+                    "Greška pri učitavanju backupa."
+                );
 
             }
 
-            if (!confirm(
-                "Uvoz backupa će zameniti trenutni plan, treninge i težinu. Nastaviti?"
-            )) {
-                return;
-            }
+        };
 
-            plan = backup.plan;
-
-            workouts =
-                Array.isArray(backup.workouts)
-                    ? backup.workouts
-                    : [];
-
-            weights =
-                Array.isArray(backup.weights)
-                    ? backup.weights
-                    : [];
-
-            currentWorkout =
-                backup.nextWorkout || "A";
-
-            savePlanStorage();
-
-            localStorage.setItem(
-                WORKOUTS_KEY,
-                JSON.stringify(workouts)
-            );
-
-            localStorage.setItem(
-                WEIGHTS_KEY,
-                JSON.stringify(weights)
-            );
-
-            localStorage.setItem(
-                NEXT_KEY,
-                currentWorkout
-            );
-
-            alert("Backup je uspešno učitan.");
-
-            renderWorkout();
-
-            renderEditor();
-
-        } catch (error) {
-
-            alert(
-                "Greška pri učitavanju backupa."
-            );
-
-        }
-
-    };
 
     reader.readAsText(file);
 
+
     event.target.value = "";
+
 }
+
+
+/* =========================================================
+   POMOĆNE FUNKCIJE
+========================================================= */
 
 function formatDate(date) {
 
@@ -1533,27 +2482,47 @@ function formatDate(date) {
             minute: "2-digit"
         }
     );
+
 }
+
 
 function escapeHtml(text) {
 
     return String(text)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
 }
+
 
 function escapeAttribute(text) {
 
     return escapeHtml(text);
+
 }
 
-/* Pokretanje aplikacije */
 
-document.getElementById("versionText").textContent =
-    "Verzija " + APP_VERSION;
+/* =========================================================
+   START
+========================================================= */
 
 renderWorkout();
 
